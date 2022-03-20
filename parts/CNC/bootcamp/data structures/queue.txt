@@ -1,0 +1,80 @@
+package bootcamp1;
+class qNode
+{
+	int no;
+	qNode next;
+	qNode(int n)
+	{
+		no=n;
+		next=null;
+	}
+}
+public class queue {
+    qNode front=null,rear=null;
+    int maxsize=2,qsize=0;
+	public queue() {
+		// TODO Auto-generated constructor stub
+	}
+	public void enqueue(int n)
+	{                             //10 qs=1 20 qs=2 30 qs=3 
+		qNode newnode=new qNode(n);
+		if(front==null)
+		{
+			front=rear=newnode;
+			qsize+=1; //qsize=qsize+1;
+		}
+		else
+		{   if(qsize<maxsize)
+		   {
+			rear.next=newnode;
+			rear=newnode;
+			qsize+=1;
+		   }
+		else
+		{
+			System.out.println("overflow condition-queue is full");
+		}
+		}
+	}
+	public void display()
+	{
+		qNode temp=front;
+		if(temp==null)
+		{
+			System.out.println("queue empty");
+			return;
+		}
+		while(temp!=null)
+		{
+			System.out.print(temp.no+" ");
+			temp=temp.next;
+		}
+		System.out.println();
+	}
+      public void dequeue()
+      {
+    	  if(front==null)
+    	  {
+    		  System.out.println("underflow condition-queue is empty");
+    	  }
+    	  else
+    	  {
+    		  front=front.next; //advance the front pointer
+    	      qsize-=1;
+    	   }
+    	  
+      }
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+      queue obj=new queue();
+      obj.enqueue(10);
+      obj.enqueue(20);
+      obj.display();
+     obj.dequeue();
+     obj.display();
+     obj.dequeue();
+     obj.dequeue();
+     
+	}
+
+}

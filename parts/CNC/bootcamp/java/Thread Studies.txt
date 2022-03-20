@@ -1,0 +1,33 @@
+Runnable vs Thread
+
+---------------------------------
+
+Join method
+
+---------------------------------
+Thread Priorities
+
+------------------------------
+
+Methods
+----------
+void suspend()
+void resume()
+void yield()
+
+-----------------------------
+
+Daemon Thread
+
+-----------------------------
+
+volatile ----> keyword
+
+
+
+
+
+
+
+
+

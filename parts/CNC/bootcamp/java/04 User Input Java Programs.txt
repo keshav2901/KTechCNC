@@ -1,0 +1,126 @@
+package demo;
+
+import java.util.Scanner;
+
+public class Testing01 {
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        
+
+        String uname = sc.nextLine();
+        String password = sc.nextLine();
+        
+        System.out.println("   "+uname);
+        System.out.println("   "+password);
+        
+    }
+}
+
+
+package demo;
+
+import java.util.Scanner;
+
+public class Testing02 {
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print(" Enter the Username : ");
+        String uname = sc.nextLine();
+        
+        System.out.print(" Enter the Password : ");
+        String password = sc.nextLine();
+        
+        System.out.print(" Enter the Mobile no : ");
+        long mobile = sc.nextLong();
+        
+        System.out.println("   "+uname);
+        System.out.println("   "+password);
+        System.out.println("   "+mobile);
+        
+    }
+}
+
+
+package demo;
+
+import java.util.Scanner;
+
+public class Testing03 {
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        
+        int d = a*b*c;
+        
+        System.out.println("----> "+d);
+    }
+}
+
+
+package demo;
+
+import java.util.Scanner;
+
+public class Testing04 {
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        
+        int arr[]=new int[n];
+        
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        
+        System.out.println("\n");
+        for (int i = 0; i < n; i++) {
+            System.out.println(" --> "+arr[i]);
+        }
+        
+        
+    }
+}
+
+package demo;
+
+import java.util.Scanner;
+public class Testing05 {
+    public static void main(String args[]){
+        
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        
+        int arr[]=new int[n];
+        
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        
+        System.out.println("\n");
+
+        int max = arr[0];
+        
+        for (int i = 1; i < n; i++) {
+            if(arr[i] > max){
+                max=arr[i];
+            }
+        }
+        
+        
+        System.out.println(" ---> "+max);
+    }
+}
+
+/*
+
+6
+10 20 30 40 50 10
+
+*/
+
+
+-------------------------------------------------------

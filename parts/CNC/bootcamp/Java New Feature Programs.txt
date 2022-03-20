@@ -1,0 +1,283 @@
+package demo08_newconcepts;
+
+class A{
+	int x;
+
+	void add(){
+		System.out.println(" Class A ");
+	}
+ 	void add(int x){
+		this.x = x;
+		System.out.println(" Class A "+this.x);
+ 	}
+ 	void add(int x,int y){
+		System.out.println(" Class A "+x+"    "+y);
+ 	}
+}
+
+class PGM01_MethodsOverloading{
+ 	public static void main(String aa[]){
+  		A ob=new A();
+  		ob.add();
+  		ob.add(70);
+  		ob.add(10,10);
+ 	}
+}
+
+=============================================================
+
+package demo08_newconcepts;
+
+class PGM02_ForEachExample1{
+  public static void main(String args[]){
+	  
+        int arr[] = {12,13,14,44};
+
+        for(int i : arr){
+                System.out.println("   "+i);
+        }
+
+        System.out.println("\n");
+
+        String ss[]={"Ravi","Hari","Siva","John"};
+
+        for(String s : ss){
+            System.out.println("   "+s);
+        }
+  }
+}  
+
+=============================================================
+
+package demo08_newconcepts;
+
+import java.util.*;
+class PGM03_ForEachExample2{
+  public static void main(String args[]){
+        ArrayList list=new ArrayList();
+        
+        list.add("vimal");
+        list.add("ravi");
+        list.add("harish");
+
+        for(Object s : list){
+            System.out.println((String)s);
+        }
+  }
+}  
+
+=============================================================
+
+package demo08_newconcepts;
+import java.util.ArrayList;
+class PGM04_ForEachExample3{
+ 	public static void main(String args[]){
+
+  		int a[];
+  		a=new int[5];
+
+  		a[0]=100;
+  		a[1]=200;
+  		a[2]=300;
+  		a[3]=400;
+  		a[4]=500;
+
+  		int v;
+
+  		for(int i=0;i<5;i++){
+   			v=a[i];
+   			System.out.println("  Result :  "+v);
+  		}
+
+       System.out.println("=====================");
+
+  		for(int x : a){
+   			System.out.println("  Result :  "+x);
+  		}
+
+        new Demo().test();
+ 	}
+}
+class Demo{
+    void test(){
+        String ss[]= {"Ravi","Hari","Siva","Ramu","Prakash"};
+
+
+        System.out.println("========================");
+
+  		for(String s : ss){
+   			System.out.println("  Result :  "+s);
+  		}
+
+        ArrayList<String> al=new ArrayList<String>();
+
+        al.add("Java");
+        al.add("J2EE");
+        al.add("C++");
+        al.add("C");
+        al.add("VB");
+
+        for (String object : al) {
+             System.out.println("   "+(String)object);
+        }
+    }
+}
+
+=============================================================
+
+package demo08_newconcepts;
+//Variable Arguments
+class PGM05_VarargsExample1{
+
+        static void display(String... a){
+            System.out.println("display method invoked \n");
+        }
+
+        public static void main(String args[]){
+            display();//zero argument
+            display("Java");
+            display("PHP","Python","Java","J2EE","C","C++");
+        }
+}
+
+=============================================================
+package demo08_newconcepts;
+class PGM06_VarargsExample2{
+        static void display(String... values){
+            System.out.println("display method invoked \n");
+            for(String s : values){
+                System.out.print("--"+s);
+            }
+            System.out.println("\n========================================");
+        }
+        public static void main(String args[]){
+            display();//zero argument
+            display("Java");
+            display("PHP","Python","Java","J2EE","C","C++");
+            display("PHP","Python","Java","J2EE","C","C++","VB");
+        }
+}
+
+=============================================================
+package demo08_newconcepts;
+class PGM07_VarargsExample3{
+        static void display(int num, String... values){
+            System.out.println("number is "+num);
+            for(String s:values){
+                System.out.println(s);
+            }
+            System.out.println("-------------");
+        }
+        public static void main(String args[]){
+            display(100);
+            display(500,"hello");//one argument
+            display(1000,"my","name","is","varargs");//four arguments
+        }
+}
+=============================================================
+package demo08_newconcepts;
+
+class PGM08_UnboxingExample1{
+  public static void main(String args[]){
+        int x = 100;        
+        Integer i=new Integer(x); //Boxing        
+        int a = i; //Auto-unboxing
+        System.out.println(a);
+
+  }
+}
+=============================================================
+package demo08_newconcepts;
+
+class PGM09_UnboxingExample2{
+  public static void main(String args[]){
+
+        int a=50;
+        Integer a2=new Integer(a);//Boxing
+        Integer a3 = a; // Auto-Boxing
+        System.out.println(a2+" "+a3);
+        
+        Integer i=new Integer(50);
+
+        if(i<100) {            //unboxing internally
+            System.out.println(i);
+        }
+  }
+}
+=============================================================
+package demo08_newconcepts;
+
+class PGM11_Boxing1
+{
+  static void m(int i)
+  {
+        System.out.println("  Widening beats Boxing");
+  }
+  static void m(Integer i)
+  {
+        System.out.println("  Boxing beats Widening ");
+  }
+
+  public static void main(String args[])
+  {
+      short i=10;
+        
+      m(i);
+        //m(new Integer(20));
+  }
+}
+=============================================================
+package demo08_newconcepts;
+
+class PGM12_Boxing2
+{
+  static void m(int i, int i2)
+  {
+        System.out.println("  Widening  ");
+  }
+  static void m(Integer... i)
+  {
+        System.out.println(" Var-Args ");
+  }
+
+  public static void main(String args[])
+  {
+        short s1=30,s2=40;
+        m(s1,s2);
+  }
+}
+
+=============================================================
+
+package demo08_newconcepts;
+
+class PGM13_Boxing3
+{
+  static void m(Integer i)
+  {
+        System.out.println(" Boxing ");
+  }
+  static void m(Integer... i)
+  {
+        System.out.println(" Var-Args ");
+  }
+
+  public static void main(String args[])
+  {
+        int a=30;
+        m(a);
+  }
+}
+
+=============================================================
+
+package demo08_newconcepts;
+import static java.lang.System.*;
+class PGM14_StaticImportExample{
+      public static void main(String args[]){
+    	  out.println("Hello");//Now no need of System.out
+    	  out.println("Java");
+      }
+}
+
+=============================================================

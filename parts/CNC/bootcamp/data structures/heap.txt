@@ -1,0 +1,129 @@
+package bootcamp1;
+
+public class maxheap {
+    int heap[]=new int[10];
+    int n=-1;
+    public void maxinsert(int no)
+    {
+    	n++;
+    	heap[n]=no;
+    	int parent=0;
+    	int i=n;
+    	while(i>=1)
+    	{
+    		parent=(i-1)/2;
+    		if(heap[parent]<heap[i])
+    		{
+    			int temp=heap[parent];
+    			heap[parent]=heap[i];
+    			heap[i]=temp;
+    		}
+    		else
+    		{
+    			return;
+    		}
+    		i=parent;
+    	}
+    	
+    }
+    
+    public void display()
+    {
+    	for(int i=0;i<=n;i++)
+    		System.out.print(heap[i]+" ");
+    }
+	public maxheap() {
+		// TODO Auto-generated constructor stub
+	}
+    
+    	
+    public void maxdelete()
+    {
+    	int lastelement=heap[n];// 30 40 50 30
+    	heap[0]=lastelement;
+    	n--;//2
+    	int parent=0;
+    	int i=0;
+    	while(i<=n)
+    	{
+    		parent=(i-1)/2;
+    		if(heap[parent]<heap[i])
+    		{
+    			int temp=heap[parent];
+    			heap[parent]=heap[i];
+    			heap[i]=temp;
+    		}
+    		i++;
+    	}
+    }
+    public void findparent(int no)
+    {
+    	int index=0;
+    	for(int i=0;i<=n;i++)
+    	{
+    		if(heap[i]==no)
+    		{
+    			index=i;
+    			break;
+    		}
+    	}
+    	System.out.println("The parent of "+no+" is "+heap[(index-1)/2]);
+    }
+    public void mindelete()
+    {
+    	int lastelement=heap[n];
+    	heap[0]=lastelement;
+    	n--;
+    	int parent=0;
+    	int i=0;
+    	while(i<=n)
+    	{
+    		parent=(i-1)/2;
+    		if(heap[parent]>heap[i])
+    		{
+    			int temp=heap[parent];
+    			heap[parent]=heap[i];
+    			heap[i]=temp;
+    		}
+    		i++;
+    	}
+    }
+    
+    //array starts in 0 //lc index*2+1 rc index*2+2
+    public void findchildren(int no)
+    {
+    	int index=0,found=0;
+    	for(int i=0;i<=n;i++)
+    	{
+    		if(heap[i]==no)
+    		{
+    			found=1;
+    			index=i;
+    			break;
+    		}
+    	}
+    	
+    	System.out.print("The children of "+no+"is "+heap[(index*2)+1]+" "+heap[(index*2)+2]);
+    }//if array starts in 1 
+    //left child is index*2 right child is index*2+1
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+     maxheap obj=new maxheap();
+     obj.maxinsert(10);
+     obj.maxinsert(20);
+     obj.maxinsert(30);
+     obj.maxinsert(40);
+     obj.maxinsert(35);
+     obj.maxinsert(32);
+     obj.display();
+     //System.out.println("The parent is"+obj.findparent(20));
+     //obj.findchildren(20);
+     
+     obj.maxdelete();
+     System.out.println();
+     obj.display();
+     obj.findparent(32);
+     obj.findchildren(35);
+	}
+
+}
